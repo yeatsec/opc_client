@@ -6,9 +6,15 @@
 #ifndef _OPC_CLIENT_H_
 #define	_OPC_CLIENT_H_
 
-int opc_client_init(int _port, int _buff_size);
+typedef struct rgb_struct {
+	char red;
+	char green;
+	char blue;
+} rgb;
 
-int opc_client_enqueue();
+int opc_client_init(int _port, char * _server_address);
+
+int opc_client_send_formatted(char _channel, char _command, int _data_size, rgb * _data);
 
 int opc_client_close();
 
