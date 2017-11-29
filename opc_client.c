@@ -82,6 +82,10 @@ int opc_client_close()
 		return 1;
 	}
 	close(sock_fd);
+	bzero(&sa, sizeof(struct sockaddr_in6));
+	port = 0;
+	server_address = NULL;
+	initialized = 0;
 	return 0;
 }
 
