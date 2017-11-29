@@ -66,7 +66,7 @@ int opc_client_send_formatted(char _channel, char _command, int _data_size, rgb 
 	}
 
 	// sendto
-	if (sendto(sock_fd, msg, 4+(3*_data_size), 0, &sa, sizeof(struct server_addr)) < 0)
+	if (sendto(sock_fd, msg, 4+(3*_data_size), 0,(struct sockaddr *)&sa, sizeof(struct sockaddr_in6)) < 0)
 	{
 		printf("datagram sendto failed!\n");
 		return 2;
